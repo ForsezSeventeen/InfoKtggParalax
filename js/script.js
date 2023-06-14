@@ -1,6 +1,5 @@
 "use strict"
 
-// Ждем загрузку контента
 window.onload = function () {
 	const parallax = document.querySelector('.parallax');
 
@@ -10,15 +9,15 @@ window.onload = function () {
 		const mountains = document.querySelector('.images-parallax__mountains');
 		const human = document.querySelector('.images-parallax__human');
 
-		// Коэффициенты
+		// Коефіцієнти
 		const forClouds = 40;
 		const forMountains = 20;
 		const forHuman = 10;
 
-		// Скорость анимации
+		// Швидкість анімації
 		const speed = 0.05;
 
-		// Объявление переменных
+		// Оголошення змінних
 		let positionX = 0, positionY = 0;
 		let coordXprocent = 0, coordYprocent = 0;
 
@@ -29,7 +28,7 @@ window.onload = function () {
 			positionX = positionX + (distX * speed);
 			positionY = positionY + (distY * speed);
 
-			// Передаем стили
+			// Передаємо стилі
 			clouds.style.cssText = `transform: translate(${positionX / forClouds}%,${positionY / forClouds}%);`;
 			mountains.style.cssText = `transform: translate(${positionX / forMountains}%,${positionY / forMountains}%);`;
 			human.style.cssText = `transform: translate(${positionX / forHuman}%,${positionY / forHuman}%);`;
@@ -39,20 +38,20 @@ window.onload = function () {
 		setMouseParallaxStyle();
 
 		parallax.addEventListener("mousemove", function (e) {
-			// Получение ширины и высоты блока
+			// Отримання ширини та висоти блока
 			const parallaxWidth = parallax.offsetWidth;
 			const parallaxHeight = parallax.offsetHeight;
 
-			// Ноль по середине
+			// Нуль по середині
 			const coordX = e.pageX - parallaxWidth / 2;
 			const coordY = e.pageY - parallaxHeight / 2;
 
-			// Получаем проценты
+			// Отримуємо відсотки
 			coordXprocent = coordX / parallaxWidth * 100;
 			coordYprocent = coordY / parallaxHeight * 100;
 		});
 
-		// Parallax при скролле
+		// Parallax при прокручуванні
 
 		let thresholdSets = [];
 		for (let i = 0; i <= 1.0; i += 0.005) {
